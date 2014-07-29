@@ -1,0 +1,72 @@
+<div class="navbar">
+    <div class="navbar-inner">
+        <div class="container">
+
+            <a class="brand" href="/" title="zVPS Blog">zVPS Blog</a>
+
+            <ul class="nav">
+                <li class="">
+                    <a href="http://www.zvps.uk/xen-vps-performance" title="zVPS Xen Servers"><i class="icon-hdd"></i> Servers</a>
+                </li>
+            </ul>
+
+
+            <div class="pull-right" style="padding: 0px; margin: 0px;">
+                <a class="btn btn-navbar pull-right" title="Expand Navigation Menu" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </a>
+            </div>
+
+            
+            <div class="nav-collapse collapse">
+                <ul class="nav">
+                    
+                    <li style="text-align: left;" class="dropdown <?php echo isActive(array('features')); ?>">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-cog"></i> Features <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="<?php echo isActive('anti-ddos'); ?>"><a href="http://www.zvps.uk/features/anti-ddos" title=""><i class="icon-eye-open"></i> Anti-DDoS</a></li>
+                            <li class="<?php echo isActive('anti-spam'); ?>"><a href="http://www.zvps.uk/features/anti-spam" title=""><i class="icon-inbox"></i> Anti-Spam</a></li>
+                            <li class="<?php echo isActive('unlimited-bandwidth'); ?>"><a href="http://www.zvps.uk/features/unlimited-bandwidth" title=""><i class="icon-download-alt"></i> Unlimited Bandwidth</a></li>
+                            <li class="<?php echo isActive('zvps-manager'); ?>"><a href="http://www.zvps.uk/features/zvps-manager" title=""><i class="icon-cog"></i> zVPS Manager</a></li>
+                        </ul>
+                    </li>
+                    
+
+                    <li style="text-align: left;" class="dropdown <?php echo isActive(array('zpanelx')); ?>">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-globe"></i> ZPanelX <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li class="<?php echo isActive('servers'); ?>"><a href="http://www.zvps.uk/zpanelx/servers" title=""><i class="icon-hdd"></i> Servers</a></li>
+                            <li class="dropdown-submenu <?php echo isActive(array('installers')); ?>">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-wrench"></i> Installers</a>
+                                <ul class="dropdown-menu">
+                                    <li class="<?php echo isActive('centos-6'); ?>"><a href="http://www.zvps.uk/zpanelx/installers/centos-6" title=""><i class="icon-chevron-right"></i> CentOS 6.4</a></li>
+                                    <li class="<?php echo isActive('ubuntu-12-04'); ?>"><a href="http://www.zvps.uk/zpanelx/installers/ubuntu-12-04" title=""><i class="icon-chevron-right"></i> Ubuntu 12.04</a></li>
+                                </ul>
+                            </li>
+                            <li class="dropdown-submenu <?php echo isActive(array('modules')); ?>">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="icon-download-alt"></i> Modules</a>
+                                <ul class="dropdown-menu">
+                                    <li class="<?php echo isActive(array('htpasswd')); ?>"><a href="http://www.zvps.uk/zpanelx/modules/htpasswd" title=""><i class="icon-chevron-right"></i> zVPS HTPasswd</a></li>
+                                    <li class="<?php echo isActive(array('zsimple')); ?>"><a href="http://www.zvps.uk/zpanelx/modules/zsimple" title=""><i class="icon-chevron-right"></i> zSimple</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                    
+                    <li><a href="/"><i class="icon-comments"></i> Blog</a></li>
+                    <li><a href="http://red.zvps.co.uk/projects/zvps-design/wiki"><i class="icon-info-sign"></i> Wiki</a></li>
+                    <li class="<?php echo isActive('contact-us'); ?>"><a href="http://www.zvps.uk/contact-us"><i class="icon-envelope"></i> Contact</a></li>
+
+                    <li><a href="https://portal.zvps.co.uk/manage"><i class="icon-user"></i> Login</a></li>
+                </ul>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+{% for page in site.pages %}
+    {% if page.title %}<a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>{% endif %}
+{% endfor %}
