@@ -1,0 +1,23 @@
+/* reset icon colours due to using font awesome */
+a i { color: rgb(51, 51, 51); }
+a i.icon-white { color: rgb(255,255,255); }
+
+/** reset hdd icon due to using font awsome */
+.icon-hdd {
+  display: inline-block !important;
+  width: 14px !important;
+  height: 14px !important;
+  margin-top: 1px !important;
+  *margin-right: .3em !important;
+  line-height: 14px !important;
+  vertical-align: text-top !important;
+  background-image: url("../img/glyphicons-halflings.png") !important;
+  background-position: 14px 14px !important;
+  background-repeat: no-repeat !important;
+  background-position: 0 -144px !important;
+  font-size: 0;
+}
+
+.icon-hdd.icon-white {
+    background-image: url("../img/glyphicons-halflings-white.png") !important;
+}
