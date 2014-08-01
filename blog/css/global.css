@@ -22,7 +22,6 @@ icon-white { color: #ffffff !important; }
 .dropdown-menu li > a:hover, .dropdown-menu li > a:focus, .dropdown-submenu:hover > a { background-color: #E5E5E5 !important; background-image: none !important; }
 .dropdown-menu .active > a, .dropdown-menu .active > a:hover { background-color: #E5E5E5 !important; background-image: none !important; }
 
-
 /* gradent background to match nav bar */
 div.background-fill {
     background-color: #fafafa;
@@ -40,4 +39,9 @@ div.background-fill {
     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+}
+
+/** fix content touching cell walls */
+.padded {
+    padding: 0 15px;
 }
