@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Restoring a deleted logical volume"
-date:   2013-02-18 02:35:06
+date:   2013-02-16 02:35:06
 categories: guides linux lvm
 ---
 
