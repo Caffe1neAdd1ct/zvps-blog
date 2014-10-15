@@ -15,7 +15,7 @@ Most servers are setup by default to fallback to SSLv3 if a browser or email cli
 
 ### Impact ###
 
-This will impact people browsing sites which only support up to SSLv3 and people using out-of-date browser which also support up-to SSLv3. We would recommend disabling this on all services implementing SSL for secure connections ASAP, common services on a Linux server would include:
+This will impact anyone browsing sites or using services which only support up to SSLv3. We would recommend disabling this on all services implementing SSL for secure connections ASAP, common services on a Linux server could include:
 
  * Apache 2
  * Postfix
@@ -35,7 +35,14 @@ This will impact people browsing sites which only support up to SSLv3 and people
 #### Chrome ####
 
  - Windows
+
  Be aware this will only protect you if chrome is opened from the modified shortcut!
+
+Right click your chrome icon on your desktop
+Click Properties
+Add `--ssl-version-min=tls1` to the end of the Target text box
+(outside the quotes)
+Click Apply then Ok
 
 ![Disable SSLv3 Chrome](/img/chrome-ssl3-disable.png) 
 
