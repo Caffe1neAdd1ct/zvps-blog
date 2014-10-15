@@ -7,9 +7,9 @@ categories: security
 
 ### Summary ###
 
-The newly announced Poodle Bleed Bug allows attackers to intercept traffic sent over SSL (https) connections and decrypt any information sent using the SSLv3 protocol.
+The newly announced POODLE (Padding Oracle On Downgraded Legacy Encryption) bug allows attackers to intercept traffic sent over the SSLv3 protocol and decrypt it.
 
-Most of the internets servers are setup by detail to fallback to this protocol if a client (such as a browser or email client) requests to use it.
+Most servers are setup by default to fallback to this protocol if a client (such as a browser or email client) requests to use it.
 
 <hr>
 
