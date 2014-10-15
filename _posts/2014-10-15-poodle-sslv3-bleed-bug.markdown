@@ -159,7 +159,7 @@ or
 
     tls-cipher TLS-ECDHE-RSA-WITH-AES-256-GCM-SHA384:TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA
 
-Be sure any of the ciphersuites is unsupported in SSLv3.
+Be sure any of the ciphersuites are unsupported in SSLv3.
 
 
 [poodle-test-script]:  https://gist.github.com/Caffe1neAdd1ct/75040d8b2daa5bf243f2
