@@ -9,13 +9,13 @@ categories: security
 
 The newly announced POODLE (Padding Oracle On Downgraded Legacy Encryption) bug allows attackers to intercept traffic sent over the SSLv3 protocol and decrypt it.
 
-Most servers are setup by default to fallback to SSLv3 if a browser or email client requests to use it.
+Most servers are setup to fallback to SSLv3 by default if a browser or email client requests to use an older protocol.
 
 <hr>
 
 ### Impact ###
 
-This will impact anyone browsing sites or using services which only support up to SSLv3. We would recommend disabling this on all services implementing SSL for secure connections ASAP, common services on a Linux server could include:
+This will impact anyone browsing sites or using services which only support up to SSLv3. We would recommend disabling SSLv3 on all services implementing SSL for a secure connection, common services on a Linux server could include:
 
  * Apache 2
  * Postfix
@@ -34,29 +34,28 @@ This will impact anyone browsing sites or using services which only support up t
 
 #### Chrome ####
 
- - Windows
+ - Crome on a Windows PC
 
- Beware - this will only protect you if chrome is opened from the modified shortcut!
+ Beware - this will only protect you if Chrome is opened from the modified shortcut!
 
-Right click your chrome icon on your desktop
-Click Properties
+Right click your Chrome shortcut icon
+Select Properties
 Add `--ssl-version-min=tls1` to the end of the Target text box
-(outside the quotes)
-Click Apply then Ok
+(outside the quotes) as seen in the image below,
+Click Apply then click Ok.
 
 ![Disable SSLv3 Chrome](/img/chrome-ssl3-disable.png) 
 
- - Linux
+ - Crome on a Linux PC
 
+Open a new terminal and run the following command:
 vi /usr/share/applications/google-chrome.desktop
 
-Search for Exec
-
-Add `--ssl-version-min=tls1` to the end of all Exec lines
+Search for all instances of `Exec` and add `--ssl-version-min=tls1` to the end of all Exec lines
 
 #### Firefox ####
 
-Mozilla plan to disable SSLv3 support in version 35, however this release is planned for the 25th November 2014. It is recommended to install the following plugin and use it to disble SSLv3 communication in the meanwhile:
+Mozilla already plan to disable SSLv3 support in version 35, which is scheduled for release on the 25th November 2014. To maximise security in the meantime it is recommended to install the below plugin to disable SSLv3 communication until the next Mozilla update:
 
 https://addons.mozilla.org/en-US/firefox/addon/ssl-version-control/
 
@@ -66,13 +65,13 @@ https://addons.mozilla.org/en-US/firefox/addon/ssl-version-control/
 
     openssl s_client -connect secure.assetsource.com:443 -ssl3 | grep -i "sslv3 alert handshake failure"
 
-If the string "sslv3 alert handshake failure" **is NOT found then the site is at risk** from eavesdroppers and attackers could login as people using the site.
+If the string "sslv3 alert handshake failure" **is NOT found then the site/ service IS at risk** and data may be intercepted by attackers.
 
-If the string **is found then the server is fine**, example of a secure site:
+If the string **IS found then the server IS secure**, example of a secure site:
 
     openssl s_client -connect portal.zvps.uk:443 -ssl3 | grep -i "sslv3 alert handshake failure"
 
-For an easy to use Linux test script have a look at [our poodle test script][poodle-test-script] on GitHub.
+Check out our easy to use Linux test script to see if your server is secure [our poodle test script][poodle-test-script] .
 
 <hr>
 
