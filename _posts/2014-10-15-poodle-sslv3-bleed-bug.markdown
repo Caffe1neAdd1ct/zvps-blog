@@ -80,7 +80,7 @@ For a easy to use Linux text script have a look at [Our Poodle Test Script][pood
 
 ### Linux System Administrators - Disabling SSLv3 on Services ###
 
-#### Apache #### 
+#### Apache ####
 
 Sample SSL virtualhost with only TLS enabled:
 
