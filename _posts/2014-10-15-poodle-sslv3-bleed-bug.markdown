@@ -72,9 +72,7 @@ If the string **is found then the server is fine**, example of a secure site:
 
     openssl s_client -connect portal.zvps.uk:443 -ssl3 | grep -i "sslv3 alert handshake failure"
 
-Our servers have always run with SSLv3 disabled.
-
-For a easy to use Linux text script have a look at [Our Poodle Test Script][poodle-test-script] over on GitHub.
+For an easy to use Linux test script have a look at [our poodle test script][poodle-test-script] on GitHub.
 
 <hr>
 
@@ -128,11 +126,11 @@ Sample SSL virtualhost with only TLS enabled:
 
     </VirtualHost>
 
-Apache 2.4 can also be improved to specify versions of TLS, **only add the versions you would like your server to provide**:
+Apache 2.4 can also be improved to specify versions of TLS, **only add the versions you want your server to provide**:
 
     SSLProtocol -ALL +TLSv1.0 +TLSv1.1 +TLSv1.2
 
-Basically after any declaration of `SSLEngine on` add:
+After any declaration of `SSLEngine on` add:
 
     SSLProtocol -ALL +TLSv1
     SSLHonorCipherOrder on
@@ -159,7 +157,7 @@ or
 
     tls-cipher TLS-ECDHE-RSA-WITH-AES-256-GCM-SHA384:TLS-ECDHE-ECDSA-WITH-AES-256-CBC-SHA
 
-Be sure any of the ciphersuites are unsupported in SSLv3.
+Be sure none of the ciphersuites are supported in SSLv3.
 
 
 [poodle-test-script]:  https://gist.github.com/Caffe1neAdd1ct/75040d8b2daa5bf243f2
