@@ -9,7 +9,7 @@ categories: security
 
 The newly announced POODLE (Padding Oracle On Downgraded Legacy Encryption) bug allows attackers to intercept traffic sent over the SSLv3 protocol and decrypt it.
 
-Most servers are setup by default to fallback to this protocol if a client (such as a browser or email client) requests to use it.
+Most servers are setup by default to fallback to SSLv3 if a browser or email client requests to use it.
 
 <hr>
 
