@@ -45,7 +45,7 @@ vi /usr/share/applications/google-chrome.desktop
 
 Search for Exec
 
-Add --ssl-version-min=tls1 to the end of all Exec lines
+Add `--ssl-version-min=tls1` to the end of all Exec lines
 
 #### Firefox ####
 
@@ -66,6 +66,8 @@ If the string **is found then the server is fine**, example of a secure site:
     openssl s_client -connect portal.zvps.uk:443 -ssl3 | grep -i "sslv3 alert handshake failure"
 
 Our servers have always run with SSLv3 disabled.
+
+For a easy to use Linux text script have a look at [Our Poodle Test Script][poodle-test-script] over on GitHub.
 
 <hr>
 
@@ -153,3 +155,4 @@ or
 Be sure any of the ciphersuites is unsupported in SSLv3.
 
 
+[poodle-test-script]:  https://gist.github.com/Caffe1neAdd1ct/75040d8b2daa5bf243f2
