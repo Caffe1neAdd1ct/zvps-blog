@@ -36,7 +36,7 @@ This will impact anyone browsing sites or using services which only support up t
 
  - Windows
 
- Be aware this will only protect you if chrome is opened from the modified shortcut!
+ Beware - this will only protect you if chrome is opened from the modified shortcut!
 
 Right click your chrome icon on your desktop
 Click Properties
