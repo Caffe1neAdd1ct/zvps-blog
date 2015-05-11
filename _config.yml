@@ -5,7 +5,7 @@ description: "zVPS.uk nForced Website Hosting Limited Blog"
 baseurl: ""
 url: "http://blog.zvps.uk"
 twitter_username: _zVPS
-github_username:  zVPS
+github_username: zVPS
 
 # Build settings
 markdown: kramdown
