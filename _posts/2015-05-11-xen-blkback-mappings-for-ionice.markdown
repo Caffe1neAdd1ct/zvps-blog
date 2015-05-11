@@ -101,7 +101,7 @@ DomU guest servers on a solusvm setup have the following device setups:
 
 ### Sample run though to limit domu swap partition
 
-Use `iotop -o -a` to find the blkback processes with two named the same using a lot of read / write I\O:
+Use `iotop` to find the blkback processes with two named the same using a lot of read / write I\O:
 
  * `iotop -o -a`
 
