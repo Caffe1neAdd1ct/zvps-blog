@@ -110,7 +110,7 @@ Use `iotop` to find the blkback processes with two named the same using a lot of
 {% endhighlight %}
 
 
- * `ps aux | grep [b]lkback.38`
+ * `ps aux | grep [b]lkback.37`
  
 {% highlight bash %}
 root     27443  0.0  0.0      0     0 ?        S    May10   0:02 [blkback.37.xvda]
