@@ -129,7 +129,7 @@ root     27444  0.0  0.0      0     0 ?        S    May10   0:00 [blkback.37.xvd
 
  * `blktrace -d /dev/dm-37 -o - | blkparse -i -`
  
-```bash
+{% highlight ruby %}
 253,38   0     2582   346.686626712 27444  Q   R 576 + 64 [blkback.37.xvda]
 253,38   0     2583   346.686796981     0  C   R 576 + 64 [0]
 253,38   0     2584   346.686884522 27444  Q   R 424 + 24 [blkback.37.xvda]
@@ -138,7 +138,7 @@ root     27444  0.0  0.0      0     0 ?        S    May10   0:00 [blkback.37.xvd
 253,38   0     2587   346.693435109     0  C   R 384 + 32 [0]
 253,38   0     2588   346.693534487 27444  Q   R 512 + 64 [blkback.37.xvda]
 253,38   0     2589   346.693706972     0  C   R 512 + 64 [0]
-```
+{% endhighlight %}
 
  * Process id of swap partition for domu vm176 is `27444`
  
