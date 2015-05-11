@@ -13,7 +13,7 @@ Limiting io on a xen domu swap partition can help reduce load on hypervisors and
 
 The command `dmsetup ls` can be used to map logical volumes `lvs` to system block devices `/dev/dm-*`. Running `dmsetup ls --tree` will give an output similar to the following:
 
-```
+```bash
 vg-vm176_img	(253:19)
  └─ (8:4)
 vg-vm176_swap	(253:20)
@@ -31,7 +31,7 @@ Firstly filter down to the Xen DomU name using `grep`:
 
 `dmsetup ls | grep -i "vm110"`
 
-```
+```bash
 vg-vm176_img	(253:19)
 vg-vm176_swap	(253:20)
 ```
@@ -44,13 +44,13 @@ To find related I/O stats use the `iostat` command which is part of the `sysstat
 
 `iostat -d | grep "dm-19 "`
 
-```
+```bash
 dm-19             2.89        99.98        22.03    9633792    2123064
 ```
 
 `iostat -d | grep "dm-20 "`
 
-```
+```bash
 dm-20             0.01         0.06         0.33       5312      31480
 ```
 
@@ -72,7 +72,7 @@ This makes mapping from the logical volume to the running device blkback process
  * `mount -t debugfs debugfs /sys/kernel/debug`
  * `blktrace -d /dev/dm-20 -o - | blkparse -i -`
 
-```
+```bash
 253,21   0        1     0.000000000 25821  Q  WS 770048 + 8 [blkback.37.xvda]
 253,21   0        2     0.000024783 25821  Q  WS 303424 + 8 [blkback.37.xvda]
 253,21   0        3     0.000089757     0  C  WS 770048 + 8 [0]
@@ -90,7 +90,7 @@ This makes mapping from the logical volume to the running device blkback process
  * Process id is `25821`
  * Check running processes for this ID using `ps aux | grep [2]5821`
  
- ```
+ ```bash
  root     25821  0.0  0.0      0     0 ?        S    May10   0:03 [blkback.37.xvda]
  ```
  
@@ -103,34 +103,33 @@ DomU guest servers on a solusvm setup have the following device setups:
 
  * `iotop -o -a`
 
-```
+```bash
 27443 be/4 root         **12.00 G**      **6.00 G**  0.00 %  0.00 % [blkback.38.xvda]
 ```
 
 
  * `ps aux | grep [b]lkback.38`
  
-```
+```bash
 root     27443  0.0  0.0      0     0 ?        S    May10   0:02 [blkback.37.xvda]
 root     27444  0.0  0.0      0     0 ?        S    May10   0:00 [blkback.37.xvda]
-
 ```
 
  * `xl domname 37` 
  
-```
+```bash
  vm176
 ```
  
  * `lvdisplay -c | grep vm176_swap`
   
-```
+```bash
   /dev/vg/vm176_swap:vg:3:1:-1:2:1048576:128:-1:0:-1:253:20
 ```
 
  * `blktrace -d /dev/dm-37 -o - | blkparse -i -`
  
-```
+```bash
 253,38   0     2582   346.686626712 27444  Q   R 576 + 64 [blkback.37.xvda]
 253,38   0     2583   346.686796981     0  C   R 576 + 64 [0]
 253,38   0     2584   346.686884522 27444  Q   R 424 + 24 [blkback.37.xvda]
