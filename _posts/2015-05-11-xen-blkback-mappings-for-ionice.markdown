@@ -101,10 +101,12 @@ DomU guest servers on a solusvm setup have the following device setups:
 
 ### Sample run though to limit domu swap partition
 
+Use `iotop -o -a` to find the blkback processes with two named the same using a lot of read / write I\O:
+
  * `iotop -o -a`
 
 {% highlight bash %}
-27443 be/4 root         **12.00 G**      **6.00 G**  0.00 %  0.00 % [blkback.38.xvda]
+27443 be/4 root         **12.00 G**      **6.00 G**  0.00 %  0.00 % [blkback.37.xvda]
 {% endhighlight %}
 
 
@@ -127,23 +129,21 @@ root     27444  0.0  0.0      0     0 ?        S    May10   0:00 [blkback.37.xvd
   /dev/vg/vm176_swap:vg:3:1:-1:2:1048576:128:-1:0:-1:253:20
 {% endhighlight %}
 
- * `blktrace -d /dev/dm-37 -o - | blkparse -i -`
+ * `blktrace -d /dev/dm-20 -o - | blkparse -i -`
  
 {% highlight bash %}
-253,38   0     2582   346.686626712 27444  Q   R 576 + 64 [blkback.37.xvda]
-253,38   0     2583   346.686796981     0  C   R 576 + 64 [0]
-253,38   0     2584   346.686884522 27444  Q   R 424 + 24 [blkback.37.xvda]
-253,38   0     2585   346.686898184 27444  Q   R 384 + 32 [blkback.37.xvda]
-253,38   0     2586   346.693388592     0  C   R 424 + 24 [0]
-253,38   0     2587   346.693435109     0  C   R 384 + 32 [0]
-253,38   0     2588   346.693534487 27444  Q   R 512 + 64 [blkback.37.xvda]
-253,38   0     2589   346.693706972     0  C   R 512 + 64 [0]
+253,20   0     2582   346.686626712 27444  Q   R 576 + 64 [blkback.37.xvda]
+253,20   0     2583   346.686796981     0  C   R 576 + 64 [0]
+253,20   0     2584   346.686884522 27444  Q   R 424 + 24 [blkback.37.xvda]
+253,20   0     2585   346.686898184 27444  Q   R 384 + 32 [blkback.37.xvda]
+253,20   0     2586   346.693388592     0  C   R 424 + 24 [0]
+253,20   0     2587   346.693435109     0  C   R 384 + 32 [0]
+253,20   0     2588   346.693534487 27444  Q   R 512 + 64 [blkback.37.xvda]
+253,20   0     2589   346.693706972     0  C   R 512 + 64 [0]
 {% endhighlight %}
 
- * Process id of swap partition for domu vm176 is `27444`
+ * Process id of swap partition `dm-20` for domu `vm176` id `37` is `27444`
  
- Now to stop the domu from consuming all the server I\O using `ionice` command:
+To stop the domu from consuming all the server I\O using `ionice` command:
  
-  * `ionice -p 14775 -c 3 -n 7`
-
-  
+  * `ionice -p 27444 -c 3 -n 7`
