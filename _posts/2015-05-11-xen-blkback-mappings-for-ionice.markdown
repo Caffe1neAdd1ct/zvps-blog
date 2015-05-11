@@ -2,7 +2,7 @@
 layout: post
 title:  "Xen 4.4 Blkback Process Mappings For Ionice Swap Partitions"
 date:   2015-05-11 15:49:12
-categories: guides linux lvm
+categories: guides linux lvm xen ionice
 ---
 
 ## Mapping blkback process to running Xen DomU
