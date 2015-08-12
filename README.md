@@ -10,16 +10,16 @@ Sample Text Highlighting: http://pygments.org/docs/lexers/
 Software which generates the html output: http://jekyllrb.com/
 
 Run the watching / auto generation script:
-Window -> IDE Tools -> Terminal
-./Scripts/jekyll-blog.sh zvps-blog
+Right click zvps-blog project name -> select Run
 
-Send to github:
+Commit locally:
 right click project
 git
 commit
 enter message
 click ok
 
+Send to github
 right click project
 git
 remote
