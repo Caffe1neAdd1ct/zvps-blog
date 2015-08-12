@@ -17,8 +17,6 @@
             <div class="nav-collapse collapse">
                 <ul class="nav">
                     
-                    <li><a href="/" title="Home"><i class="icon-home"></i> Home</a></li>
-                    
                     {% for page in site.pages %}
                         {% if page.title %}<li><a href="{{ page.url | prepend: site.baseurl }}"><i class="{{ page.icon }}"></i> {{ page.title }}</a></li>{% endif %}
                     {% endfor %}
